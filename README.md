@@ -35,6 +35,8 @@ There are also Gerber files for the 'Rework' PCB, along with all the programming
 
 For those planning to make their own Disk Demon, there is a step by step assembly guide.
 
+The PCB is available as a Shared Project on PCBWay https://www.pcbway.com/project/shareproject/Disk_Demon_2026_Rework_C64_Rev3a_214e8d53.html
+
 The User Port version of the Professional DOS Kernal ROM for the Commodore 64 is included in case you want to compare it to the Disk Demon C64 Kernal ROM
 
 Datel also sold a 'Disk Demon Utility Disk' so there is a D64 image for that.
