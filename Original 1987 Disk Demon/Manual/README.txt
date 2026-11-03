@@ -1,1 +1,1 @@
-Scans of an original Disk Demon manual
+Photos of an original Disk Demon manual
