@@ -1,0 +1,82 @@
+Name       Disk Demon ATF16V8B;
+Partno     82S123 32x8 PROM;
+Date       13/8/26;
+Revision   1;
+Designer   Niall Edwards and Mark Haysman;
+Company    None;
+Assembly   None;
+Location   None;
+Device     G16V8;
+/** 82s123 emulation of Disk Demon PROM using Atmel ATF16V8B, mnemonic G16V8, Auto setting **/
+/** Based on work published by Mark Haysman of Leopardcats **/
+/** This version is simplified, reworked for 16V8 and uses Disk Demon PROM Data **/
+
+/**  Inputs  **/
+/* Changed to Pin 9 through Pin 5 from Pin 8 through Pin 4 */
+
+Pin 9 = A0;
+Pin 8 = A1;
+Pin 7 = A2;
+Pin 6 = A3;
+Pin 5 = A4;
+
+/**  Outputs  **/
+/* Changed to Pin 12 through Pin 19 for the 16V8 from Pin 16 through Pin 23 for the 22V10 */
+/* Tried to change from Q7-Q0 to Q8-Q1 to reflect the output pins of the 82S123 */
+/* but it gives errors. I think this is because all indexes must start at 0 */
+/* The best I could get to work was using 8Q-1Q instead of Q8 to Q1 */
+
+/*Pin [12..19] = [Q7..0];    Original version of this command when using Q7 to Q0*/
+
+Pin 12 = 8Q;
+Pin 13 = 7Q;
+Pin 14 = 6Q;
+Pin 15 = 5Q;
+Pin 16 = 4Q;
+Pin 17 = 3Q;
+Pin 18 = 2Q;
+Pin 19 = 1Q;
+ 
+/** Declarations and Intermediate Variable Definitions **/
+/* field byte = [Q7..0]; */
+/* field byte = [Q8, Q7, Q6, Q5, Q4, Q3, Q2, Q1]; */
+
+field byte = [8Q, 7Q, 6Q, 5Q, 4Q, 3Q, 2Q, 1Q];
+field address = [A4..0];
+
+/* Original PROM data */
+table address => byte {
+0 => 1c;
+1 => 1d;
+2 => 1c;
+3 => 1d;
+4 => 35;
+5 => 35;
+6 => 1c;
+7 => 1d;
+8 => 1c;
+9 => 1d;
+a => 1c;
+b => 1d;
+c => d;
+d => 8d;
+e => 2c;
+f => 2d;
+10 => 34;
+11 => 1d;
+12 => 1c;
+13 => 1d;
+14 => 34;
+15 => 34;
+16 => 1c;
+17 => 1d;
+18 => 1c;
+19 => 1d;
+1a => 1c;
+1b => 1d;
+1c => a;
+1d => 4a;
+1e => 2c;
+1f => 2d;
+}
+

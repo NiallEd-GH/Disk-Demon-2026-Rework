@@ -1,0 +1,63 @@
+%SIGNAL
+PIN  19 =  1Q 
+PIN  18 =  2Q 
+PIN  17 =  3Q 
+PIN  16 =  4Q 
+PIN  15 =  5Q 
+PIN  14 =  6Q 
+PIN  13 =  7Q 
+PIN  12 =  8Q 
+PIN   9 =  A0 
+PIN   8 =  A1 
+PIN   7 =  A2 
+PIN   6 =  A3 
+PIN   5 =  A4 
+%END
+
+%FIELD
+FIELD address = A4,A3,A2,A1,A0
+FIELD byte = 8Q,7Q,6Q,5Q,4Q,3Q,2Q,1Q
+%END
+
+%EQUATION
+1Q =>
+    A0 & A1 & A2
+  # A0 & !A2
+  # !A1 & A2 & !A4
+
+2Q =>
+    !A1 & A2 & A3 & A4
+
+3Q =>
+    !A1 & A2 & A3 & !A4
+  # !A2
+  # !A1 & A2 & !A3
+  # A1 & A2
+
+4Q =>
+    !A0 & A1 & A2 & A3 & A4
+  # !A2 & !A3 & !A4
+  # A0 & A1 & A2 & A4
+  # !A0 & A1 & !A3 & A4
+  # A0 & !A2 & !A3 & A4
+  # !A2 & A3
+  # !A1 & A2 & A3
+  # A1 & A2 & !A4
+
+5Q =>
+    A2 & !A3
+  # !A2
+
+6Q =>
+    A0 & !A1 & A2 & !A3 & A4
+  # !A1 & A2 & !A3 & !A4
+  # A1 & A2 & A3
+  # !A0 & !A1 & !A3 & A4
+
+7Q =>
+    A0 & !A1 & A2 & A3 & A4
+
+8Q =>
+    A0 & !A1 & A2 & A3 & !A4
+
+%END

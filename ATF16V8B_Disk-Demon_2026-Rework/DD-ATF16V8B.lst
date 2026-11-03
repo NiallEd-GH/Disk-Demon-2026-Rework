@@ -1,0 +1,104 @@
+LISTING FOR LOGIC DESCRIPTION FILE: DD-ATF16V8B.pld                  Page 1
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# MW-10400000
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Thu Aug 13 01:56:39 2026
+
+  1:Name       Disk Demon ATF16V8B;
+  2:Partno     82S123 32x8 PROM;
+  3:Date       13/8/26;
+  4:Revision   1;
+  5:Designer   Niall Edwards and Mark Haysman;
+  6:Company    None;
+  7:Assembly   None;
+  8:Location   None;
+  9:Device     G16V8;
+ 10:/** 82s123 emulation of Disk Demon PROM using Atmel ATF16V8B, mnemonic G16V8, Auto setting **/
+ 11:/** Based on work published by Mark Haysman of Leopardcats **/
+ 12:/** This version is simplified, reworked for 16V8 and uses Disk Demon PROM Data **/
+ 13:
+ 14:/**  Inputs  **/
+ 15:/* Changed to Pin 9 through Pin 5 from Pin 8 through Pin 4 */
+ 16:
+ 17:Pin 9 = A0;
+ 18:Pin 8 = A1;
+ 19:Pin 7 = A2;
+ 20:Pin 6 = A3;
+ 21:Pin 5 = A4;
+ 22:
+ 23:/**  Outputs  **/
+ 24:/* Changed to Pin 12 through Pin 19 for the 16V8 from Pin 16 through Pin 23 for the 22V10 */
+ 25:/* Tried to change from Q7-Q0 to Q8-Q1 to reflect the output pins of the 82S123 */
+ 26:/* but it gives errors. I think this is because all indexes must start at 0 */
+ 27:/* The best I could get to work was using 8Q-1Q instead of Q8 to Q1 */
+ 28:
+ 29:/*Pin [12..19] = [Q7..0];    Original version of this command when using Q7 to Q0*/
+ 30:
+ 31:Pin 12 = 8Q;
+ 32:Pin 13 = 7Q;
+ 33:Pin 14 = 6Q;
+ 34:Pin 15 = 5Q;
+ 35:Pin 16 = 4Q;
+ 36:Pin 17 = 3Q;
+ 37:Pin 18 = 2Q;
+ 38:Pin 19 = 1Q;
+ 39: 
+ 40:/** Declarations and Intermediate Variable Definitions **/
+ 41:/* field byte = [Q7..0]; */
+ 42:/* field byte = [Q8, Q7, Q6, Q5, Q4, Q3, Q2, Q1]; */
+ 43:
+ 44:field byte = [8Q, 7Q, 6Q, 5Q, 4Q, 3Q, 2Q, 1Q];
+ 45:field address = [A4..0];
+ 46:
+ 47:/* Original PROM data */
+ 48:table address => byte {
+ 49:0 => 1c;
+ 50:1 => 1d;
+ 51:2 => 1c;
+ 52:3 => 1d;
+ 53:4 => 35;
+
+LISTING FOR LOGIC DESCRIPTION FILE: DD-ATF16V8B.pld                  Page 2
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# MW-10400000
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Thu Aug 13 01:56:39 2026
+
+ 54:5 => 35;
+ 55:6 => 1c;
+ 56:7 => 1d;
+ 57:8 => 1c;
+ 58:9 => 1d;
+ 59:a => 1c;
+ 60:b => 1d;
+ 61:c => d;
+ 62:d => 8d;
+ 63:e => 2c;
+ 64:f => 2d;
+ 65:10 => 34;
+ 66:11 => 1d;
+ 67:12 => 1c;
+ 68:13 => 1d;
+ 69:14 => 34;
+ 70:15 => 34;
+ 71:16 => 1c;
+ 72:17 => 1d;
+ 73:18 => 1c;
+ 74:19 => 1d;
+ 75:1a => 1c;
+ 76:1b => 1d;
+ 77:1c => a;
+ 78:1d => 4a;
+ 79:1e => 2c;
+ 80:1f => 2d;
+ 81:}
+ 82:
+ 83:
+ 84:
+
+
+
+Jedec Fuse Checksum       (683b)
+Jedec Transmit Checksum   (3dce)
