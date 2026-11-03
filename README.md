@@ -29,10 +29,6 @@ The board has been tested in several different 1541 disk drives, both ALPS & New
 
 Datel originally claimed that a 202 Block file could be loaded in around 2.5 seconds. I have not been able to reproduce that time with either the original board or this rework. But, I have managed to load 202 blocks in 3.5 seconds which is good enough for me.
 
-I will eventually put everything on Github but until then, everything you need to make your own Disk Demon 2026 Rework can be found in the following Dropbox folder:
-
-https://www.dropbox.com/scl/fo/gwwa881zg9il6wmikdycw/AMbzrbYnvgkNwzH522mszKA?rlkey=rf6b5pywt3chtxbrlcwlpujbu&st=khkt0kpd&dl=0
-
 I have included a Kicad Schematic for both the original 1987 Disk Demon and the 2026 Rework.
 
 There are also Gerber files for the 'Rework' PCB, along with all the programming information for the ATF16V8, the 256kb Disk Demon EPROM and the C64 Disk Demon Kernal ROM.
